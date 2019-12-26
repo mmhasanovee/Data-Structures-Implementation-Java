@@ -5,14 +5,14 @@ public class Tree {
 
     public void insert(int data){
 
-        if(root==null){
+        if(root==null){ //if the tree is empty, root will hold the new data itself
 
             root = new TreeNode(data);
 
 
         }
 
-        else {
+        else { //if the tree is not empty
 
             root.insert(data);
         }
@@ -20,23 +20,23 @@ public class Tree {
 
     public TreeNode getNode(int value){
 
-        if(root!=null){
+        if(root!=null){ //has data
 
             return root.getNode(value);
 
         }
 
-        return null;
+        return null; //root is null
     }
 
     public void delete(int value){
 
-        root = delete(root,value);
+        root = delete(root,value); //root will be updated in case we want to delete the root data
     }
 
     private TreeNode delete(TreeNode subtreeRoot, int value){
 
-        if(subtreeRoot==null){
+        if(subtreeRoot==null){ //actually root is null
 
             return subtreeRoot;
         }
@@ -65,7 +65,7 @@ public class Tree {
             }
 
             //case 3: node to delete has already 2 children
-            //Replace teh value in the subtreeRoot node with the smallest value
+            //Replace the value in the subtreeRoot node with the smallest value
             //from the right subtree
             subtreeRoot.setData(subtreeRoot.getRightChild().min());
 
@@ -79,14 +79,14 @@ public class Tree {
 
     public void traverseInOrder(){
 
-        if(root!=null){
+        if(root!=null){ //if the root is not null means tree has data
             root.traverseInOrder();
         }
     }
 
     public void traversePreOrder(){
 
-        if(root!=null){
+        if(root!=null){ //if the root is not null means tree has data
 
             root.traversePreOrder();
         }
@@ -96,7 +96,7 @@ public class Tree {
 
     public void traversePostOrder(){
 
-        if(root!=null){
+        if(root!=null){ //if the root is not null means tree has data
 
             root.traversePostOrder();
         }
@@ -110,11 +110,11 @@ public class Tree {
 
         if(root==null){
 
-            return Integer.MIN_VALUE;
+            return Integer.MIN_VALUE; //Null root means no data, so returning smallest integer value
         }
 
         else {
-            return root.min();
+            return root.min(); //root not null, so calling min function from TreeNode
         }
     }
 
@@ -122,11 +122,11 @@ public class Tree {
 
         if(root==null){
 
-            return Integer.MAX_VALUE;
+            return Integer.MAX_VALUE; //Null root means no data, so returning maximum value possible in integer
         }
 
         else {
-            return root.max();
+            return root.max(); //root not null, so calling max function from TreeNode
         }
     }
 
